@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?= $this->extend('dasar_tampilan'); ?>
 <?= $this->section('isiweb') ?>
 <form method="POST" action="<?= base_url('/login') ?>">
@@ -21,3 +22,18 @@
     </div>
 </form>
 <?= $this->endSection() ?> 
+=======
+<html>
+    <head>
+        <title>Perpustakan Login</title>
+    </head>
+    <body>
+        
+        <h1>Selamat datang di sistem informasi perpustakaan</h1>
+        <p>
+            Ini adalah layanan perpustakaan digital masa kini
+            <a href="<?=base_url('/daftar-member')?>">klik daftar</a> untuk mendaftar menjadi member
+        </p>
+    </body>
+</html>
+>>>>>>> 97206ddccc6e29640d17a78ad224bf43703c79e8
