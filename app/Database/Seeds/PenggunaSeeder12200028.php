@@ -2,16 +2,16 @@
 
 namespace App\Database\Seeds;
 
-use App\Models\Pengguna;
+use App\Models\Pengguna12200028;
 use CodeIgniter\Database\Seeder;
 
-class PenggunaSeeder extends Seeder
+class PenggunaSeeder12200028 extends Seeder
 {
     public function run()
     {
         $data = [
             [
-                'nama'      => 'febri alviansyah',
+                'nama'      => 'febri',
                 'password'  => md5('12200028')
             ],
             [
@@ -24,7 +24,7 @@ class PenggunaSeeder extends Seeder
             ]
         ];
 
-        $p = new Pengguna();
+        $p = new Pengguna12200028();
         $p->insertBatch($data);
     }
 }

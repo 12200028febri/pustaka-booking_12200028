@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?= $this->extend('dasar_tampilan'); ?>
 <?= $this->section('isiweb') ?>
 <form method="POST" action="<?= base_url('/login') ?>">
@@ -7,33 +6,40 @@
             <div class="card-header">
                 <h3 class="card-title">Login</h3>
             </div>
+
             <div class="card-body">
+                <?php if ($error) { ?>
+                    <div class='alert alert-danger'>
+                        <?= $error ?>
+                    </div>
+                <?php } ?>
+
                 <div class="form-floating">
-                    <input id="txtEmail" class="form-control" placeholder="Email" type="text" name="email" />
+                    <input id="txtEmail" class="form-control" placeholder="Email" value="<?= $email ?? '' ?>" type="text" name="email" />
                     <label for="txtEmail">Email</label>
+
+                    <?php if ($vd?->getError('email')) { ?>
+                        <div class="alert alert-danger">
+                            <?php
+                            echo $vd?->getError('email');
+                            ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="form-floating">
-                    <input id="txtPass" class="form-control" placeholder="Password" type="password" name="sandi" />
+                    <input id="txtPass" class="form-control" placeholder="Password" value="<?= $sandi ?? '' ?>" type="password" name="sandi" />
                     <label for="txtPass">Kata Sandi</label>
+                    <?php if ($vd?->getError('sandi')) { ?>
+                        <div class="alert alert-danger">
+                            <?php
+                            echo $vd?->getError('sandi');
+                            ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <button class="btn btn-primary mt-2">Login</button>
             </div>
         </div>
     </div>
 </form>
-<?= $this->endSection() ?> 
-=======
-<html>
-    <head>
-        <title>Perpustakan Login</title>
-    </head>
-    <body>
-        
-        <h1>Selamat datang di sistem informasi perpustakaan</h1>
-        <p>
-            Ini adalah layanan perpustakaan digital masa kini
-            <a href="<?=base_url('/daftar-member')?>">klik daftar</a> untuk mendaftar menjadi member
-        </p>
-    </body>
-</html>
->>>>>>> 97206ddccc6e29640d17a78ad224bf43703c79e8
+<?= $this->endSection() ?>
