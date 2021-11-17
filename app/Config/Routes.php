@@ -31,6 +31,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
 $routes->get('/hello', 'SelamatDatang::hal_awal');
 $routes->post('/login', 'Login::cekLogin');
@@ -41,13 +42,12 @@ $routes->get('/logout', function () {
     Services::session()->destroy();
     return redirect()->to('/login');
 });
-
-$routes->get('/pengguna-list', 'PenggunaController::index', ['filter'=>'auth']);
-$routes->get('/pengguna', 'PenggunaController::form', ['filter'=>'auth']);
-$routes->get('/pengguna/(:num)', 'PenggunaController::edit/$1', ['filter'=>'auth']);
-$routes->post('/pengguna', 'PenggunaController::simpan', ['filter'=>'auth']);
-$routes->patch('/pengguna', 'PenggunaController::patch', ['filter'=>'auth']);
-$routes->delete('/pengguna', 'PenggunaController::delete', ['filter'=>'auth']);
+$routes->get('/pengguna-list', 'PenggunaController::index', ['filter' => 'auth']);
+$routes->get('/pengguna', 'PenggunaController::form', ['filter' => 'auth']);
+$routes->post('/pengguna', 'PenggunaController::simpan', ['filter' => 'auth']);
+$routes->get('/pengguna/(:num)', 'PenggunaController::edit/$1', ['filter' => 'auth']);
+$routes->patch('/pengguna', 'PenggunaController::patch', ['filter' => 'auth']);
+$routes->delete('/pengguna', 'PenggunaController::delete', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------
